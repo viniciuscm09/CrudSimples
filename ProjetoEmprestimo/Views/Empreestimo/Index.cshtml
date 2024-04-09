@@ -1,12 +1,20 @@
 ﻿@model IEnumerable<EmpreestimoModel>
 
+    <div class ="Container"> 
+        <div class="d-flex justify-content-between align-items-center mb-5">
+            <h1>Emprestimos</h1>
+            <a class ="btn btn-success mx-2" asp-controller="Empreestimo" asp-action="Cadastrar">Cadastrar novo Emprestimo</a>
+        </div>
 <table class="table">
     <thead>
         <tr>
+           
             <th scope="col">Recebedor</th>
             <th scope="col">Fornecedor</th>
             <th scope="col">Livro</th>
             <th scope="col">Ultima atualização</th>
+            <th></th>
+                
         </tr>
     </thead>
     <tbody>
@@ -17,10 +25,16 @@
             {
                 
               <tr>
+           
             <th scope="row">@emprestimo.Recebedor</th>
             <td>@emprestimo.Fornecedor</td>
             <td>@emprestimo.LivroEmprestado</td>
             <td>@emprestimo.DataEmprestimo</td>
+            <td>
+                <a asp-controller="Empreestimo" asp-action="Editar" asp-route-id="@emprestimo.Id" class="btn btn-warning mx-2">Editar</a>
+                            <a asp-controller="Empreestimo" asp-action="Excluir" asp-route-id="@emprestimo.Id" class="btn btn-danger">Excluir</a>
+            </td>
+                       
             </tr>
             }
         }
@@ -28,3 +42,4 @@
 
     </tbody>
 </table>
+  </div>
